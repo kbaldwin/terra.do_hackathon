@@ -1,18 +1,16 @@
 {
   "files": {
-    "main.css": "/terra_do_hackathon/static/css/main.02e7e96e.css",
+    "main.css": "/terra_do_hackathon/static/css/main.0c324191.css",
     "main.js": "/terra_do_hackathon/static/js/main.756aab82.js",
     "static/media/clear-sans.ttf": "/terra_do_hackathon/static/media/clear-sans.43ea7d2123718b0cfd2c.ttf",
-    "static/media/game-over.gif": "/terra_do_hackathon/static/media/game-over.7223586a86c43a6c2902.gif",
-    "static/media/try-again.gif": "/terra_do_hackathon/static/media/try-again.4f930231239de2db3c8d.gif",
     "static/media/community.jpg": "/terra_do_hackathon/static/media/community.cc225dc4ad16a0c25350.jpg",
     "static/media/global.jpg": "/terra_do_hackathon/static/media/global.bd14f436be0ab49999d0.jpg",
     "index.html": "/terra_do_hackathon/index.html",
-    "main.02e7e96e.css.map": "/terra_do_hackathon/static/css/main.02e7e96e.css.map",
+    "main.0c324191.css.map": "/terra_do_hackathon/static/css/main.0c324191.css.map",
     "main.756aab82.js.map": "/terra_do_hackathon/static/js/main.756aab82.js.map"
   },
   "entrypoints": [
-    "static/css/main.02e7e96e.css",
+    "static/css/main.0c324191.css",
     "static/js/main.756aab82.js"
   ]
 }
