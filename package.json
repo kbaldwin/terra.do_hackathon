@@ -1,8 +1,14 @@
 {
   "homepage": "https://kbaldwin.github.io/terra_do_hackathon/",
   "name": "Terra_Do_Hackathon_Game",
+  "description": "A game for the Terra Do Hackathon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kbaldwin/terra_do_hackathon.git"
+  },
   "version": "0.0.1",
   "private": false,
+  "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

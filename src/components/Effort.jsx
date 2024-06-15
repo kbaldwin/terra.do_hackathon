@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Effort = () => {
+const Effort = ({ selectedEffort, setSelectedEffort }) => {
   const [effort, setEffort] = useState("low");
 
   const handleSliderChange = (event) => {
@@ -16,12 +16,18 @@ const Effort = () => {
     }
 
     setEffort(effortLevel);
+    setSelectedEffort(effortLevel);
+  };
+
+  const displayEffort = () => {
+    return effort.charAt(0).toUpperCase() + effort.slice(1);
   };
 
   return (
     <div>
-      <h2>Effort:</h2>
+      <h2>Select Your Effort:</h2>
       <input
+        className="effort-slider"
         type="range"
         min="0"
         max="100"
@@ -29,7 +35,19 @@ const Effort = () => {
         value={effort === "low" ? 0 : effort === "medium" ? 50 : 100}
         onChange={handleSliderChange}
       />
-      <p>Effort: {effort}</p>
+      <p
+        className={`effort-label ${
+          effort === "low"
+            ? "effort-label-low"
+            : effort === "medium"
+            ? "effort-label-med"
+            : effort === "high"
+            ? "effort-label-high"
+            : ""
+        }`}
+      >
+        {displayEffort()}
+      </p>
     </div>
   );
 };

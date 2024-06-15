@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-const Scope = ({ game, question }) => {
-  const [selectedScope, setSelectedScope] = useState("");
-
+const Scope = ({ game, question, selectedScope, setSelectedScope }) => {
   const handleHoverScopeChange = (scope) => {
     console.log("hover scope:", scope);
     setSelectedScope(scope);
@@ -10,7 +8,7 @@ const Scope = ({ game, question }) => {
 
   const handleSetScopeChange = (scope) => {
     console.log("selected scope:", scope);
-    setSelectedScope(scope);
+    question.selectedScope = scope;
   };
 
   return (
@@ -18,7 +16,11 @@ const Scope = ({ game, question }) => {
       <h2>Select a Scope:</h2>
       <div>
         <img
-          className="scope-image"
+          className={`scope-image ${
+            selectedScope === "individual" && question === "individual"
+              ? "highlighted"
+              : ""
+          }`}
           src={require("../assets/individual.png")}
           alt="Individual"
           onClick={() => handleSetScopeChange("individual")}
@@ -26,7 +28,16 @@ const Scope = ({ game, question }) => {
           onMouseOut={() => handleHoverScopeChange("")}
         />
         <img
-          className="scope-image"
+          classNameOrig={`scope-image ${
+            selectedScope === "community" && question === "community"
+              ? "highlighted"
+              : ""
+          }`}
+          className={`scope-image scope-image-highlight ${
+            selectedScope === "community" && question === "community"
+              ? "highlighted"
+              : ""
+          }`}
           src={require("../assets/community.jpg")}
           alt="Community"
           onClick={() => handleSetScopeChange("community")}
@@ -34,7 +45,11 @@ const Scope = ({ game, question }) => {
           onMouseOut={() => handleHoverScopeChange("")}
         />
         <img
-          className="scope-image"
+          className={`scope-image ${
+            selectedScope === "global" && question === "global"
+              ? "highlighted"
+              : ""
+          }`}
           src={require("../assets/global.jpg")}
           alt="Global"
           onClick={() => handleSetScopeChange("global")}
