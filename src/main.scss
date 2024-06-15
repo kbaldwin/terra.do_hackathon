@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "Clear Sans";
+  src: url("../src/clear-sans.ttf") format("truetype");
+}
+
+body {
+  display: flex;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(87, 64, 124, 1) 47%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-family: "Clear Sans", sans-serif;
+  font-size: 21px;
+}
+
+.text {
+  order: 2;
+  padding-top: 40px;
+  width: 440px;
+  font-weight: bold;
+}
+
+.game {
+  user-select: none;
+  cursor: default;
+}
+
+.details-box {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.questionRow {
+  margin: 10px 0;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.resetButton {
+  background-color: #3d2963;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  &:hover {
+    background-color: #d3386a;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+.score-header {
+  font-size: 50%;
+}
+
+.score-box {
+  background-color: #3d2963;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 50px;
+  width: 70px;
+  padding: 5px 15px;
+  border-radius: 7px;
+}
+
+.scope-image {
+  width: 240px;
+  height: 200px;
+}
+
+// .try-again {
+//   z-index: 10;
+//   height: 100px;
+//   width: 100px;
+//   background-image: url(./assets/img/try-again.gif);
+// }
+
+.overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  font-size: 55px;
+  font-weight: bolder;
+  border-radius: 7px;
+}
+
+.tryAgain {
+  background-color: #876;
+  color: #fff;
+  height: 40px;
+  width: 200px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
+// .gameOver {
+//   background-size: contain;
+//   background-image: url(./assets/img/game-over.gif);
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   z-index: 100;
+//   text-align: center;
+// }
+
+.overlay .message {
+  color: #666;
+}
