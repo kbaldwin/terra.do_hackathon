@@ -6,15 +6,6 @@ class Game {
     this.loadQuestions();
   }
 
-  chooseToAct(question) {
-    console.log("chooseToAct", question);
-    let selectedOption = question.getOption(
-      this.state.selectedScope,
-      this.state.selectedEffort
-    );
-    console.log("selectedOption", selectedOption);
-  }
-
   loadQuestions() {
     const sampleQuestion = {
       text: "What can you do to reduce the impact of transportation?",
@@ -24,7 +15,7 @@ class Game {
           effort: "low",
           text: "Take public transportation more often.",
           score: 10,
-          risk: "low",
+          chanceOfSuccess: 90,
           onSuccess:
             "You chose to take public transportation more often. Great job!",
           onFailure:
@@ -35,18 +26,18 @@ class Game {
           effort: "medium",
           text: "Offset air travel with certified carbon offsets.",
           score: 20,
-          risk: "medium",
+          chanceOfSuccess: 80,
           onSuccess:
             "You chose to offset air travel with certified carbon offsets. Well done!",
           onFailure:
-            "Offsetting air travel with certified carbon offsets could have helped reduce the impact of transportation. Keep trying!",
+            "Your offsets were just green-washing scams! Better luck next time. Keep trying!",
         },
         {
           scope: "individual",
           effort: "high",
           text: "Buy an EV.",
           score: 30,
-          risk: "high",
+          chanceOfSuccess: 30,
           onSuccess: "You chose to buy an EV. Excellent choice!",
           onFailure:
             "You realize buying an EV isn't affordable right now. Don't give up!",
@@ -56,7 +47,7 @@ class Game {
           effort: "low",
           text: "Talk to your local government about public transportation.",
           score: 15,
-          risk: "low",
+          chanceOfSuccess: 85,
           onSuccess:
             "You talk to your local government representatives about funding more public transportation. Keep up the good work!",
           onFailure:
@@ -65,31 +56,31 @@ class Game {
         {
           scope: "community",
           effort: "medium",
-          text: "Organize a protest against a new highway.",
-          score: 25,
-          risk: "medium",
-          onSuccess:
-            "You rally several community members to protest against a new highway. Way to go!",
-          onFailure:
-            "Your neighbors actually support the new highway so choose not to join you. Keep pushing!",
-        },
-        {
-          scope: "community",
-          effort: "high",
           text: "Start a carpooling program at work.",
-          score: 35,
-          risk: "high",
+          score: 25,
+          chanceOfSuccess: 65,
           onSuccess:
             "You influence your employer to create a carpooling program at work. Fantastic!",
           onFailure:
             "Your company is too focused on the bottom line to care about its employees and the environment. Don't give up!",
         },
         {
+          scope: "community",
+          effort: "high",
+          text: "Organize a protest against a new highway.",
+          score: 35,
+          chanceOfSuccess: 15,
+          onSuccess:
+            "You rally several community members to protest against a new highway. Way to go!",
+          onFailure:
+            "Your neighbors actually support the new highway so choose not to join you. Keep pushing!",
+        },
+        {
           scope: "global",
           effort: "low",
           text: "Vote!",
           score: 5,
-          risk: "low",
+          chanceOfSuccess: 95,
           onSuccess:
             "You vote for candidates that prioritize the environment! Your voice matters!",
           onFailure:
@@ -100,7 +91,7 @@ class Game {
           effort: "medium",
           text: "Write an op-ed about vehicle emissions.",
           score: 15,
-          risk: "medium",
+          chanceOfSuccess: 55,
           onSuccess:
             "Your op-ed about vehicle emissions was published and well-received. Well done!",
           onFailure:
@@ -111,7 +102,7 @@ class Game {
           effort: "high",
           text: "Start a global movement to ban cars.",
           score: 25,
-          risk: "high",
+          chanceOfSuccess: 5,
           onSuccess:
             "You chose to start a global movement to ban cars. Amazing!",
           onFailure:

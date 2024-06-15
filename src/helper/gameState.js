@@ -6,6 +6,8 @@ class GameState {
     this.activeEffort = "low";
     this.selectedScope = "individual";
     this.selectedEffort = "low";
+    this.acted = false;
+    this.resultText = "";
   }
 
   clone() {

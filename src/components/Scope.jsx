@@ -1,13 +1,5 @@
 const Scope = ({ gameState, setGameState, question }) => {
-  const handleHoverScopeChange = (scope) => {
-    console.log("hover scope:", scope);
-    let newGameState = gameState.clone();
-    newGameState.activeScope = scope;
-    setGameState(newGameState);
-  };
-
   const handleSetScopeChange = (scope) => {
-    console.log("selected scope:", scope);
     let newGameState = gameState.clone();
     newGameState.selectedScope = scope;
     setGameState(newGameState);
@@ -16,49 +8,52 @@ const Scope = ({ gameState, setGameState, question }) => {
   return (
     <div>
       <h3>Select a Scope:</h3>
-      <div>
-        <img
-          className={`scope-image ${
-            gameState.selectedScope === "individual" &&
-            question === "individual"
-              ? "highlighted"
-              : ""
+      <div className="scopes-row">
+        <div
+          className={`scope-option ${
+            gameState.selectedScope === "individual"
+              ? "scope-selected"
+              : "scope-not-selected"
           }`}
-          src={require("../assets/individual.png")}
-          alt="Individual"
-          onClick={() => handleSetScopeChange("individual")}
-          onMouseOver={() => handleHoverScopeChange("individual")}
-          onMouseOut={() => handleHoverScopeChange("none")}
-        />
-        <img
-          classNameOrig={`scope-image ${
-            gameState.selectedScope === "community" && question === "community"
-              ? "highlighted"
-              : ""
+        >
+          <img
+            className="scope-image"
+            src={require("../assets/individual.png")}
+            alt="Individual"
+            onClick={() => handleSetScopeChange("individual")}
+          />
+          <div className="scope-description">Individual</div>
+        </div>
+        <div
+          className={`scope-option ${
+            gameState.selectedScope === "community"
+              ? "scope-selected"
+              : "scope-not-selected"
           }`}
-          className={`scope-image scope-image-highlight ${
-            gameState.selectedScope === "community" && question === "community"
-              ? "highlighted"
-              : ""
+        >
+          <img
+            className="scope-image"
+            src={require("../assets/community.jpg")}
+            alt="Community"
+            onClick={() => handleSetScopeChange("community")}
+          />
+          <div className="scope-description">Community</div>
+        </div>
+        <div
+          className={`scope-option ${
+            gameState.selectedScope === "global"
+              ? "scope-selected"
+              : "scope-not-selected"
           }`}
-          src={require("../assets/community.jpg")}
-          alt="Community"
-          onClick={() => handleSetScopeChange("community")}
-          onMouseOver={() => handleHoverScopeChange("community")}
-          onMouseOut={() => handleHoverScopeChange("none")}
-        />
-        <img
-          className={`scope-image ${
-            gameState.selectedScope === "global" && question === "global"
-              ? "highlighted"
-              : ""
-          }`}
-          src={require("../assets/global.jpg")}
-          alt="Global"
-          onClick={() => handleSetScopeChange("global")}
-          onMouseOver={() => handleHoverScopeChange("global")}
-          onMouseOut={() => handleHoverScopeChange("none")}
-        />
+        >
+          <img
+            className="scope-image"
+            src={require("../assets/global.jpg")}
+            alt="Global"
+            onClick={() => handleSetScopeChange("global")}
+          />
+          <div className="scope-description">Global</div>
+        </div>
       </div>
     </div>
   );

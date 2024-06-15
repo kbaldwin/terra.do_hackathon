@@ -12,6 +12,5 @@ root.render(
   <>
     <App />
     <br />
-    <h3>Keith's Terra.do Hackathon Game</h3>
   </>
 );

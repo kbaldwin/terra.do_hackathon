@@ -48,18 +48,8 @@ body {
   justify-content: space-between;
 }
 
-.resetButton {
-  background-color: #3d2963;
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  font-size: 25px;
-  padding: 10px 20px;
-  border-radius: 7px;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  &:hover {
-    background-color: #d3386a;
-    color: rgba(255, 255, 255, 1);
-  }
+.question-text {
+  margin: 5px;
 }
 
 .score-header {
@@ -75,18 +65,31 @@ body {
   border-radius: 7px;
 }
 
+.scopes-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .scope-image {
   width: 240px;
   height: 200px;
   margin: 20px;
 }
 
-.scope-image-highlight {
-  border: 5px solid #f00;
+.scope-description {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.scope-image-selected {
-  border: 10px solid #fff;
+.scope-selected {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+.scope-not-selected {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0);
 }
 
 .effort-slider {
@@ -110,34 +113,53 @@ body {
   font-size: 48px;
 }
 
-.overlay {
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  left: 0px;
-  right: 0px;
-  font-size: 55px;
-  font-weight: bolder;
-  border-radius: 7px;
+.action-text {
+  font-size: 32px;
+  font-weight: bold;
 }
 
-.tryAgain {
-  background-color: #876;
-  color: #fff;
-  height: 40px;
-  width: 200px;
-  font-size: 20px;
-  font-weight: bold;
+.act-button {
+  background-color: #3d2963;
+  color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  border: 2px solid white;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  &:hover {
+    background-color: #6c49ac;
+    color: rgba(255, 255, 255, 1);
+  }
 }
+
+// .overlay {
+//   position: absolute;
+//   top: 0px;
+//   bottom: 0px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
+//   left: 0px;
+//   right: 0px;
+//   font-size: 55px;
+//   font-weight: bolder;
+//   border-radius: 7px;
+// }
+
+// .tryAgain {
+//   background-color: #876;
+//   color: #fff;
+//   height: 40px;
+//   width: 200px;
+//   font-size: 20px;
+//   font-weight: bold;
+//   cursor: pointer;
+//   border: none;
+//   border-radius: 5px;
+//   border: 2px solid white;
+// }
 
 // .gameOver {
 //   background-size: contain;
