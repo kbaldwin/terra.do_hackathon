@@ -1,12 +1,8 @@
 import React from "react";
-import { useState } from "react";
 import Scope from "./Scope";
 import Effort from "./Effort";
 
-const Question = ({ game, question }) => {
-  const [selectedScope, setSelectedScope] = useState("individual");
-  const [selectedEffort, setSelectedEffort] = useState("low");
-
+const Question = ({ game, gameState, setGameState, question }) => {
   const chooseToActPushed = () => {
     game.chooseToAct(question);
   };
@@ -17,21 +13,27 @@ const Question = ({ game, question }) => {
       <div className="questionRow">
         <Scope
           className="questionScope"
+          gameState={gameState}
+          setGameState={setGameState}
           question={question}
-          selectedScope={selectedScope}
-          setSelectedScope={setSelectedScope}
         />{" "}
         <Effort
           className="questionEffort"
+          gameState={gameState}
+          setGameState={setGameState}
           question={question}
-          selectedEffort={selectedEffort}
-          setSelectedEffort={setSelectedEffort}
         />
       </div>
-      <p>{question.text}</p>
-      <p>{selectedScope}</p>
-      <p>{selectedEffort}</p>
-      <button onClick={chooseToActPushed}>Choose to Act</button>
+      <p>
+        {
+          question.getOption(gameState.selectedScope, gameState.selectedEffort)
+            .text
+        }
+      </p>
+      <button onClick={chooseToActPushed}>
+        Choose to Act on a {gameState.selectedScope} level, at a{" "}
+        {gameState.selectedEffort} level of effort.
+      </button>
     </div>
   );
 };

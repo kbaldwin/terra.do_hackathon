@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import Question from "./Question";
 import Game from "../helper/game.js";
+import GameState from "../helper/gameState.js";
 
 const GameView = () => {
-  const [game, setGame] = useState(new Game());
+  const game = new Game();
+
+  const [gameState, setGameState] = useState(new GameState());
+  game.state = gameState;
 
   // const resetGame = () => {
   //   setGame(new Game());
@@ -17,11 +21,16 @@ const GameView = () => {
         </div> */}
       </div>
       <div className="game">
-        <Question game={game} question={game.questions[0]} />
+        <Question
+          game={game}
+          gameState={gameState}
+          setGameState={setGameState}
+          question={game.questions[gameState.currentQuestion]}
+        />
       </div>
       <div className="score-box">
         <div className="score-header">Points</div>
-        <div>{game.score}</div>
+        <div>{gameState.score}</div>
       </div>
     </div>
   );

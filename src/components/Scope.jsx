@@ -1,23 +1,26 @@
-import React, { useState } from "react";
-
-const Scope = ({ game, question, selectedScope, setSelectedScope }) => {
+const Scope = ({ gameState, setGameState, question }) => {
   const handleHoverScopeChange = (scope) => {
     console.log("hover scope:", scope);
-    setSelectedScope(scope);
+    let newGameState = gameState.clone();
+    newGameState.activeScope = scope;
+    setGameState(newGameState);
   };
 
   const handleSetScopeChange = (scope) => {
     console.log("selected scope:", scope);
-    question.selectedScope = scope;
+    let newGameState = gameState.clone();
+    newGameState.selectedScope = scope;
+    setGameState(newGameState);
   };
 
   return (
     <div>
-      <h2>Select a Scope:</h2>
+      <h3>Select a Scope:</h3>
       <div>
         <img
           className={`scope-image ${
-            selectedScope === "individual" && question === "individual"
+            gameState.selectedScope === "individual" &&
+            question === "individual"
               ? "highlighted"
               : ""
           }`}
@@ -25,16 +28,16 @@ const Scope = ({ game, question, selectedScope, setSelectedScope }) => {
           alt="Individual"
           onClick={() => handleSetScopeChange("individual")}
           onMouseOver={() => handleHoverScopeChange("individual")}
-          onMouseOut={() => handleHoverScopeChange("")}
+          onMouseOut={() => handleHoverScopeChange("none")}
         />
         <img
           classNameOrig={`scope-image ${
-            selectedScope === "community" && question === "community"
+            gameState.selectedScope === "community" && question === "community"
               ? "highlighted"
               : ""
           }`}
           className={`scope-image scope-image-highlight ${
-            selectedScope === "community" && question === "community"
+            gameState.selectedScope === "community" && question === "community"
               ? "highlighted"
               : ""
           }`}
@@ -42,11 +45,11 @@ const Scope = ({ game, question, selectedScope, setSelectedScope }) => {
           alt="Community"
           onClick={() => handleSetScopeChange("community")}
           onMouseOver={() => handleHoverScopeChange("community")}
-          onMouseOut={() => handleHoverScopeChange("")}
+          onMouseOut={() => handleHoverScopeChange("none")}
         />
         <img
           className={`scope-image ${
-            selectedScope === "global" && question === "global"
+            gameState.selectedScope === "global" && question === "global"
               ? "highlighted"
               : ""
           }`}
@@ -54,7 +57,7 @@ const Scope = ({ game, question, selectedScope, setSelectedScope }) => {
           alt="Global"
           onClick={() => handleSetScopeChange("global")}
           onMouseOver={() => handleHoverScopeChange("global")}
-          onMouseOut={() => handleHoverScopeChange("")}
+          onMouseOut={() => handleHoverScopeChange("none")}
         />
       </div>
     </div>

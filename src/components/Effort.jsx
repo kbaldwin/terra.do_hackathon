@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-
-const Effort = ({ selectedEffort, setSelectedEffort }) => {
-  const [effort, setEffort] = useState("low");
-
+const Effort = ({ gameState, setGameState, question }) => {
   const handleSliderChange = (event) => {
     const value = event.target.value;
     let effortLevel;
@@ -15,33 +11,41 @@ const Effort = ({ selectedEffort, setSelectedEffort }) => {
       effortLevel = "high";
     }
 
-    setEffort(effortLevel);
-    setSelectedEffort(effortLevel);
+    let newGameState = gameState.clone();
+    newGameState.selectedEffort = effortLevel;
+    setGameState(newGameState);
   };
 
   const displayEffort = () => {
+    const effort = gameState.selectedEffort;
     return effort.charAt(0).toUpperCase() + effort.slice(1);
   };
 
   return (
     <div>
-      <h2>Select Your Effort:</h2>
+      <h3>Select Your Effort:</h3>
       <input
         className="effort-slider"
         type="range"
         min="0"
         max="100"
         step="1"
-        value={effort === "low" ? 0 : effort === "medium" ? 50 : 100}
+        value={
+          gameState.selectedEffort === "low"
+            ? 0
+            : gameState.selectedEffort === "medium"
+            ? 50
+            : 100
+        }
         onChange={handleSliderChange}
       />
       <p
         className={`effort-label ${
-          effort === "low"
+          gameState.selectedEffort === "low"
             ? "effort-label-low"
-            : effort === "medium"
+            : gameState.selectedEffort === "medium"
             ? "effort-label-med"
-            : effort === "high"
+            : gameState.selectedEffort === "high"
             ? "effort-label-high"
             : ""
         }`}

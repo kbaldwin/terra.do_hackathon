@@ -2,14 +2,17 @@ import Question from "./question";
 
 class Game {
   constructor() {
-    this.score = 0;
     this.questions = [];
-    this.won = false;
     this.loadQuestions();
   }
 
   chooseToAct(question) {
     console.log("chooseToAct", question);
+    let selectedOption = question.getOption(
+      this.state.selectedScope,
+      this.state.selectedEffort
+    );
+    console.log("selectedOption", selectedOption);
   }
 
   loadQuestions() {
