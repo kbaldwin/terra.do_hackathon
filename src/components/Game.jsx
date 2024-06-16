@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Question from "./Question";
 import Game from "../helper/game.js";
 import GameState from "../helper/gameState.js";
+import GameOverlay from "./GameOverlay";
 
 const GameView = () => {
   const game = new Game();
@@ -35,6 +36,7 @@ const GameView = () => {
           setGameState={setGameState}
           question={game.questions[gameState.currentQuestion]}
         />
+        {!gameState.playing && <GameOverlay gameState={gameState} />}
         {gameState.acted && (
           <button
             className="next-question-button"

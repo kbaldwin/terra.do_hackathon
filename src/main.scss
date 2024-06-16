@@ -99,6 +99,8 @@ body {
 .effort-label {
   font-weight: bold;
   text-align: center;
+  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .effort-label-low {
@@ -111,6 +113,12 @@ body {
 
 .effort-label-high {
   font-size: 48px;
+}
+
+.effort-risk {
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
 }
 
 .action-text {
@@ -135,7 +143,7 @@ body {
 .action-result {
   font-size: 32px;
   font-weight: bold;
-  width: 80%;
+  width: 900px;
 }
 
 .next-question-button {
@@ -152,21 +160,23 @@ body {
   }
 }
 
-// .overlay {
-//   position: absolute;
-//   top: 0px;
-//   bottom: 0px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-//   text-align: center;
-//   left: 0px;
-//   right: 0px;
-//   font-size: 55px;
-//   font-weight: bolder;
-//   border-radius: 7px;
-// }
+.game-overlay {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left: 0px;
+  right: 0px;
+  font-size: 32px;
+  font-weight: bolder;
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px); /* Add this line to blur the background */
+}
 
 // .tryAgain {
 //   background-color: #876;

@@ -7,6 +7,14 @@ class GameState {
     this.selectedEffort = "low";
     this.acted = false;
     this.resultText = "";
+    this.actionCounts = {
+      individual: 0,
+      community: 0,
+      global: 0,
+      low: 0,
+      medium: 0,
+      high: 0,
+    };
   }
 
   clone() {

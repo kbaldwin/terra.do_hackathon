@@ -4,16 +4,25 @@ import Effort from "./Effort";
 
 const Question = ({ game, gameState, setGameState, question }) => {
   const chooseToActPushed = () => {
-    let newGameState = gameState.clone();
+    // record action
+    gameState.actionCounts[gameState.selectedScope] =
+      gameState.actionCounts[gameState.selectedScope] + 1;
+    gameState.actionCounts[gameState.selectedEffort] =
+      gameState.actionCounts[gameState.selectedEffort] + 1;
 
+    // update game state, including score
+    let newGameState = gameState.clone();
     let selectedOption = question.getOption(
       gameState.selectedScope,
       gameState.selectedEffort
     );
     if (Math.random() * 100 < selectedOption.chanceOfSuccess) {
       newGameState.resultText = selectedOption.onSuccess;
+      newGameState.score = newGameState.score + selectedOption.score;
     } else {
       newGameState.resultText = selectedOption.onFailure;
+      newGameState.score =
+        newGameState.score + Math.floor(selectedOption.score / 4);
     }
 
     newGameState.acted = true;

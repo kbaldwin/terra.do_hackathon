@@ -25,6 +25,20 @@ const Effort = ({ gameState, setGameState, question }) => {
     return effort.charAt(0).toUpperCase() + effort.slice(1);
   };
 
+  const displayEffortRisk = () => {
+    const effort = gameState.selectedEffort;
+    switch (effort) {
+      case "low":
+        return "(low risk)";
+      case "medium":
+        return "(medium risk)";
+      case "high":
+        return "(high risk)";
+      default:
+        return null;
+    }
+  };
+
   return (
     <div>
       <h3>Select Your Effort:</h3>
@@ -56,6 +70,7 @@ const Effort = ({ gameState, setGameState, question }) => {
       >
         {displayEffort()}
       </p>
+      <p className="effort-risk">{displayEffortRisk()}</p>
     </div>
   );
 };
