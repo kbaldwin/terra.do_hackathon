@@ -7,7 +7,7 @@ class Game {
   }
 
   loadQuestions() {
-    const sampleQuestion = {
+    const transportationQuestion = {
       text: "What can you do to reduce the impact of transportation?",
       options: [
         {
@@ -110,7 +110,114 @@ class Game {
         },
       ],
     };
-    this.questions = [new Question(sampleQuestion)];
+
+    const policyQuestion = {
+      text: "What policy or lifestyle change can you help enact?",
+      options: [
+        {
+          scope: "individual",
+          effort: "low",
+          text: "Change your lightbulbs to LEDs.",
+          score: 10,
+          chanceOfSuccess: 98,
+          onSuccess:
+            "You reduce your energy consumption and get more life out of your lightbulbs! Great job!",
+          onFailure:
+            "How many environmentalists does it take to change a lightbulb? Apparently more than just you! Try again next time!",
+        },
+        {
+          scope: "individual",
+          effort: "medium",
+          text: "Turn down your thermostat.",
+          score: 20,
+          chanceOfSuccess: 95,
+          onSuccess:
+            "You're still pretty comfortable while using less energy. Well done!",
+          onFailure:
+            "Your partner gets uncomfortably hot/cold and demands you use the HVAC more. Better luck next time. Keep trying!",
+        },
+        {
+          scope: "individual",
+          effort: "high",
+          text: "Don't have children.",
+          score: 30,
+          chanceOfSuccess: 20,
+          onSuccess:
+            "You don't have any biological children of your own. Maybe you could adopt?",
+          onFailure:
+            "Choosing to not have children is too weighty a lifestyle choice. You lose your partner and reconsider. Don't give up!",
+        },
+        {
+          scope: "community",
+          effort: "low",
+          text: "Talk with your local government about funding green initiatives.",
+          score: 15,
+          chanceOfSuccess: 85,
+          onSuccess:
+            "You meet with your local representative and convince them to prioritize green spaces in your region. Keep up the good work!",
+          onFailure:
+            "They listen but dont't change their policies.Keep trying!",
+        },
+        {
+          scope: "community",
+          effort: "medium",
+          text: "Start a local farmers market.",
+          score: 25,
+          chanceOfSuccess: 65,
+          onSuccess:
+            "You engage local farms, spur the local economy and bring the community together. Fantastic!",
+          onFailure: "You live in a food desert. :-( Don't give up!",
+        },
+        {
+          scope: "community",
+          effort: "high",
+          text: "Rally to close streets permanently.",
+          score: 35,
+          chanceOfSuccess: 15,
+          onSuccess:
+            "You rally enough community support that city planners close down a few blocks for pedestrians only. Way to go!",
+          onFailure: "Your neighbors prefer their city as it is. Keep pushing!",
+        },
+        {
+          scope: "global",
+          effort: "low",
+          text: "Vote!",
+          score: 5,
+          chanceOfSuccess: 95,
+          onSuccess:
+            "You vote for candidates that prioritize the environment! Your voice matters!",
+          onFailure:
+            "Despite voting for a pro-environment candidate, other political issues were more pressing and the other candidate won. Keep participating!",
+        },
+        {
+          scope: "global",
+          effort: "medium",
+          text: "Research carbon pricing and publish your findings.",
+          score: 15,
+          chanceOfSuccess: 55,
+          onSuccess:
+            "Your article about the positive effects of carbon pricing was published and well-received. Well done!",
+          onFailure:
+            "Carbon pricing is deemed a political non-starter. Keep trying!",
+        },
+        {
+          scope: "global",
+          effort: "high",
+          text: "Start a global movement to tax polluters and big oil.",
+          score: 25,
+          chanceOfSuccess: 5,
+          onSuccess:
+            "Stock owners and citizens vote to strengthen fines on polluters hastening the transition to clean energy. Amazing!",
+          onFailure:
+            "Big oil is too powerful and they squash your movement. Keep trying to inspire change!",
+        },
+      ],
+    };
+
+    this.questions = [
+      new Question(transportationQuestion),
+      new Question(policyQuestion),
+    ];
   }
 }
 

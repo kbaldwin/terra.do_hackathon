@@ -9,16 +9,24 @@ const GameView = () => {
   const [gameState, setGameState] = useState(new GameState());
   game.state = gameState;
 
-  // const resetGame = () => {
-  //   setGame(new Game());
-  // };
+  function nextQuestion() {
+    let newGameState = gameState.clone();
+    if (newGameState.currentQuestion === game.questions.length - 1) {
+      newGameState.playing = false;
+    } else {
+      newGameState.currentQuestion = gameState.currentQuestion + 1;
+      newGameState.selectedScope = "individual";
+      newGameState.selectedEffort = "low";
+      newGameState.acted = false;
+    }
+    setGameState(newGameState);
+  }
 
   return (
     <div>
-      <div className="details-box">
-        {/* <div className="resetButton" onClick={resetGame}>
-          New Game
-        </div> */}
+      <div className="score-box">
+        {/* <div className="score-header">Points</div> */}
+        <div>{gameState.score} Points</div>
       </div>
       <div className="game">
         <Question
@@ -27,10 +35,16 @@ const GameView = () => {
           setGameState={setGameState}
           question={game.questions[gameState.currentQuestion]}
         />
-      </div>
-      <div className="score-box">
-        <div className="score-header">Points</div>
-        <div>{gameState.score}</div>
+        {gameState.acted && (
+          <button
+            className="next-question-button"
+            onClick={() => nextQuestion()}
+          >
+            {gameState.currentQuestion === game.questions.length - 1
+              ? "Finish Quiz"
+              : "Next Question"}
+          </button>
+        )}
       </div>
     </div>
   );

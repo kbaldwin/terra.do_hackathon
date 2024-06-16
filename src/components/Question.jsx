@@ -43,12 +43,15 @@ const Question = ({ game, gameState, setGameState, question }) => {
           question.getOption(gameState.selectedScope, gameState.selectedEffort)
             .text
         }
-        <br></br>
-        <button className="act-button" onClick={chooseToActPushed}>
-          Choose to Act on a {gameState.selectedScope} level, at a{" "}
-          {gameState.selectedEffort} level of effort.
-        </button>
       </p>
+      <button
+        className="act-button"
+        onClick={chooseToActPushed}
+        disabled={gameState.acted}
+      >
+        Choose to Act on a {gameState.selectedScope} level, at a{" "}
+        {gameState.selectedEffort} level of effort.
+      </button>
       {gameState.acted && (
         <p className="action-result"> {gameState.resultText} </p>
       )}

@@ -1,5 +1,9 @@
 const Effort = ({ gameState, setGameState, question }) => {
   const handleSliderChange = (event) => {
+    if (gameState.acted) {
+      return;
+    }
+
     const value = event.target.value;
     let effortLevel;
 

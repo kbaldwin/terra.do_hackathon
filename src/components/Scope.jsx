@@ -1,5 +1,9 @@
 const Scope = ({ gameState, setGameState, question }) => {
   const handleSetScopeChange = (scope) => {
+    if (gameState.acted || gameState.selectedScope === scope) {
+      return;
+    }
+
     let newGameState = gameState.clone();
     newGameState.selectedScope = scope;
     setGameState(newGameState);
